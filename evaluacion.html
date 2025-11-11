@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evaluación</title>
+  <style>
+    body { margin: 0; background: #f7f5ff; } /* Fondo claro distinto */
+    header, main, footer { padding: 16px; }
+    h1, h2, h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #0a58ca;
+      background: #dceeff;
+      text-align: center;
+      margin: 16px auto;
+      padding: 10px 12px;
+      border-radius: 6px;
+    }
+    h1 { font-size: 40px; }
+    p {
+      font-family: "Times New Roman", Times, serif;
+      color: #000;
+      text-align: justify;
+      font-style: italic;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+    .resaltado { background: #fff3cd; padding: 8px 10px; border-left: 4px solid #ffda6a; border-radius: 4px; }
+    nav ul { list-style: none; display: flex; gap: 10px; justify-content: center; padding: 0; margin: 0 0 16px 0; }
+    nav a { text-decoration: none; color: #0a58ca; background: #e9f2ff; padding: 8px 12px; border-radius: 6px; border: 1px solid #bfd9ff; font-family: Arial, Helvetica, sans-serif; }
+    nav a:hover { background: #d5e8ff; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .block { padding: 12px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; }
+    img.responsive { max-width: 100%; height: auto; display: block; margin: 8px auto; border-radius: 6px; border: 1px solid #e5e7eb; }
+    ul, ol { margin-left: 20px; }
+    table { width: 60%; margin: 12px auto; border-collapse: collapse; background: #fff; font-family: Arial, Helvetica, sans-serif; }
+    caption { caption-side: top; text-align: left; font-style: italic; padding: 6px 0; }
+    th, td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; }
+    th { background: #cfe2ff; }
+    form { max-width: 900px; margin: 0 auto; }
+    fieldset { margin: 16px 0; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
+    legend { font-family: Arial, Helvetica, sans-serif; color: #0a58ca; }
+    label { display: block; margin: 6px 0 4px; font-family: Arial, Helvetica, sans-serif; }
+    input[type="text"], input[type="email"], input[type="date"], input[type="number"], select, textarea {
+      width: 98%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: Arial, Helvetica, sans-serif;
+    }
+    .inline { display: inline-block; margin-right: 12px; }
+    .actions { text-align: center; margin-top: 16px; }
+    button { background: #0a58ca; color: #fff; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #0949a6; }
+    .note { font-size: 0.95rem; color: #333; font-family: Arial, Helvetica, sans-serif; }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h1>Evaluación</h1>
+    <nav aria-label="Navegación">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Programas.html">Programas</a></li>
+        <li><a href="Reglamento.html">Reglamento</a></li>
+        <li><a href="Evaluacion.html">Evaluación</a></li>
+        <li><a href="Temas.html">Temas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+      <fieldset>
+        <legend>Datos del estudiante</legend>
+        <label for="nombre">Nombre y Apellido</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Natasha Segundo" required />
+
+        <label for="grupo">Grupo</label>
+        <select id="grupo" name="grupo" required>
+          <option value="" selected>Selecciona tu grupo</option>
+          <option value="9B">9º B</option>
+          <option value="9A">9º A</option>
+        </select>
+
+        <label for="ci">C.I.</label>
+        <input id="ci" name="ci" type="text" placeholder="0000000-0" pattern="^[0-9]{7}-[0-9Xx]$" title="Formato esperado: 7 dígitos, guion y dígito verificador (ej.: 5863997-0)" required />
+
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" placeholder="tu@gmail.com" required />
+
+        <label for="fecha">Fecha de realizado</label>
+        <input id="fecha" name="fecha" type="date" required />
+      </fieldset>
+
+      <fieldset>
+        <legend>Cuestionario</legend>
+
+        <!-- 1) Opción múltiple (radio) -->
+        <p><strong>1.</strong> ¿Qué es lo que se trabaja principalmente en diseño WEB?</p>
+        <label class="inline"><input type="radio" name="q1" value="html" required /> HTML</label>
+        <label class="inline"><input type="radio" name="q1" value="javascript" /> JavaScript</label>
+
+        <!-- 2) Selección múltiple (checkbox) -->
+        <p><strong>2.</strong> Marca las herramientas que se utilizan en diseño WEB (selección múltiple):</p>
+        <label class="inline"><input type="checkbox" name="q2[]" value="computadora" /> Computadora</label>
+        <label class="inline"><input type="checkbox" name="q2[]" value="programación" /> Paginas de programación (ej; jsfiddle)</label>
+        <label class="inline"><input type="checkbox" name="q2[]" value="WEB" /> Creadores de paginas WEB (ej; github)</label>
+
+        <!-- 3) Desplegable (select) -->
+        <label for="q3"><strong>3.</strong> En HTML, ¿qué etiqueta define un párrafo?</label>
+        <select id="q3" name="q3" required>
+          <option value="">Selecciona una opción</option>
+          <option value="p">&lt;p&gt;</option>
+          <option value="div">&lt;div&gt;</option>
+          <option value="span">&lt;span&gt;</option>
+        </select>
+
+        <!-- 4) Respuesta abierta breve (texto) -->
+        <label for="q4"><strong>4.</strong> Escribe una texto breve de lo que aprendiste en diseño WEB.</label>
+        <input id="q4" name="q4" type="text" maxlength="200" placeholder="Tu definición..." required />
+
+        <!-- 5) Verdadero/Falso (radio) -->
+        <p><strong>5.</strong> Verdadero o falso: “En diseño WEB aprendes a hacer videos para YouTube”.</p>
+        <label class="inline"><input type="radio" name="q5" value="V" /> Verdadero</label>
+        <label class="inline"><input type="radio" name="q5" value="F" required /> Falso</label>
+
+        <!-- 6) Opción múltiple (radio) -->
+        <p><strong>6.</strong> ¿Qué es lo que se trabaja principalmente en alimentación?</p>
+        <label class="inline"><input type="radio" name="q1_alimentacion" value="diagnostico" /> Limpieza</label>
+        <label class="inline"><input type="radio" name="q1_alimentacion" value="prueba" /> Seguridad en la cocina y preparación de alimentos.</label>
+
+        <!-- 7) Selección múltiple (checkbox) -->
+        <p><strong>7.</strong> Marca lo que se utiliza en alimentación (selección múltiple):</p>
+        <label class="inline"><input type="checkbox" name="q2_alimentacion[]" value="delantal" /> Delantales y cofias</label>
+        <label class="inline"><input type="checkbox" name="q2_alimentacion[]" value="alimentos" /> Alimentos</label>
+        <label class="inline"><input type="checkbox" name="q2_alimentacion[]" value="utensilios" /> Utensilios</label>
+        <label class="inline"><input type="checkbox" name="q2_alimentacion[]" value="repasadores" /> Repasadores</label>
+
+        <!-- 8) Desplegable (select) -->
+        <label for="q3_alimentacion"><strong>8.</strong> En la cocina, ¿que tablas se utilizan para la carne?</label>
+        <select id="q3_alimentacion" name="q3_alimentacion" required>
+          <option value="">Selecciona una opción</option>
+          <option value="blanca">Blanca</option>
+          <option value="roja">Roja</option>
+          <option value="verde">Verde</option>
+          <option value="ninguna">Ninguna de las anteriores</option>
+        </select>
+
+        <!-- 9) Respuesta abierta breve (texto) -->
+        <label for="q4_alimentacion"><strong>9.</strong> Escribe una texto breve de lo que aprendiste en alimentación.</label>
+        <input id="q4_alimentacion" name="q4_alimentacion" type="text" maxlength="200" placeholder="Tu definición..." required />
+
+        <!-- 10) Verdadero/Falso (radio) -->
+        <p><strong>10.</strong> Verdadero o falso: “En alimentación no aprendimos a hacer pizzas”.</p>
+        <label class="inline"><input type="radio" name="q5_alimentacion" value="V" /> Verdadero</label>
+        <label class="inline"><input type="radio" name="q5_alimentacion" value="F" required /> Falso</label>
+
+        <div class="actions">
+          <button type="submit">Enviar</button>
+        </div>
+      </fieldset>
+  </main>
+
+  <footer>
+  2025 — Natasha Segundo — 9º B
+  </footer>
+</body>
+</html>
